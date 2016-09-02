@@ -254,7 +254,7 @@ Devise.setup do |config|
       :scope => 'email',
       :lang => 'ru',
       :https => 1,
-      :image_size => 'bigger_x2'
+      :image_size => 'original'
     }
 
   # ==> Warden configuration

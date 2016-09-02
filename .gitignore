@@ -19,3 +19,21 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+.project
+.DS_Store
+.idea
+.secret
+/Procfile
+/shared/ # файлы, которых нет в репозитории, но они будут скопированы на сервер при первом деплое приложения
+
+#конфигуратор RVM, он нужен только на локальной машине
+.rvmrc
+#Файл с ключами
+config/secrets.yml
+#файлы конфиги
+/config/environments/development.rb
+/config/environments/production.rb
+/config/initializers/devise.rb
+/config/database.yml
+/config/deploy/ # файлы Capistrano
