@@ -248,8 +248,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :facebook, '165454103870490', 'ea1ca79fc04615c935ac51b0f0543098'
-  config.omniauth :vkontakte, '5533620', '1lrXLuKFEuO1G5875UKh',
+  config.omniauth :facebook, '165454103870490', Rails.application.secrets.facebook_app_secret
+  config.omniauth :vkontakte, '5533620', Rails.application.secrets.vkontakte_app_secret,
   {
       :scope => 'email',
       :lang => 'ru',

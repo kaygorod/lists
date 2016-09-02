@@ -32,8 +32,5 @@
 #Файл с ключами
 config/secrets.yml
 #файлы конфиги
-/config/environments/development.rb
-/config/environments/production.rb
-/config/initializers/devise.rb
 /config/database.yml
 /config/deploy/ # файлы Capistrano
