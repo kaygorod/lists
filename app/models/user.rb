@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
-  rolify
   has_many :lists
   has_many :items
   has_many :votes
@@ -11,6 +10,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable,
          :validatable, :omniauthable,
          :omniauth_providers => [:facebook, :vkontakte]
+  ROLES = %i[user admin]
 
   def self.from_omniauth_vk(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
