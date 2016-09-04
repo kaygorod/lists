@@ -1,0 +1,33 @@
+<% content_for :list_button do %>
+  <%= render "plugin/list_button" %>
+<%end%>
+<% content_for :list_share do %>
+  <%= render "plugin/list_share" %>
+<%end%>
+<% content_for :sort_menu do %>
+  <%= render 'plugin/sort' %>
+<%end%>
+<% content_for :items do %>
+  <% @items.each do |item| %>
+    <%= render 'plugin/item', item: item  %>
+  <%end%>
+<%end%>
+
+<% content_for :modal do %>
+  <%= render 'plugin/item_form' %>
+<%end%>
+
+<% content_for :list_comments_form do %>
+  <div class="row">
+    <div class="col-xs-12">
+      <iframe src="<%= list_comments_plugin_index_url %>?list=<%=@list.id%>" scrolling="no" frameborder="0" width="100%"></iframe>
+      <script>iFrameResize({log:true})</script>
+    </div>
+  </div>
+<%end%>
+
+<% content_for :script do %>
+  <%= render 'plugin/script' %>
+<%end%>
+
+<%= render template: "layouts/list" %>

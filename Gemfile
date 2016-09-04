@@ -43,7 +43,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 gem 'cancancan', '~> 1.10'
 gem 'friendly_id', '~> 5.1.0'
-gem 'rolify'
+#gem 'rolify'
 
 
 group :development, :test do

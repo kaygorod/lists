@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <% if @item.title? %>
+    <meta property="og:title" content="<%= full_title(@item.title) %>"/>
+    <meta name="twitter:title" content="<%= full_title(@item.title) %>" />
+    <% else %>
+    <meta property="og:title" content="<%= full_title(@list.title) %>"/>
+    <meta name="twitter:title" content="<%= full_title(@list.title) %>" />
+    <% end %>
+    <meta property="og:description" content="<%= @item.description %>"/>
+    <meta property="og:image" content="http://slylist.com<%= @item.image %>">
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content= "<%= absolute_url %>" />
+    <meta property="og:site_name" content="SlyList" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="<%= truncate(@item.description, length: 100) %>" />
+    <meta name="twitter:image:src" content="http://slylist.com<%= @item.image %>" />
+    <meta name="twitter:domain" content="slylist.com" />
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <script> location.href = "<%= list_path(@list) %>#<%= @item.id %>"; </script>
+  </body>
+</html>
+

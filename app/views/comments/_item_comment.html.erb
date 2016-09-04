@@ -1,0 +1,23 @@
+<div id="item_comment_one_<%= comment.id %>">
+<div class="row">
+  <div class="col-xs-12">
+    <div class="avatar-item-container list-item-comments_avatar">
+      <%= display_avatar(comment.user) %>
+    </div>
+
+
+    <div class="list-item-comment-body">
+    <b><%= link_to comment.user.username, user_path(comment.user) %></b>
+    <small><%= comment.content %></small>
+    <small class="text-muted">
+      <p><%= time_ago_in_words(comment.created_at) %> назад.
+      <% if can? :destroy, comment %>
+      <%= link_to 'Удалить',list_comment_path(@list.id, comment),
+                    method: :delete, data: { confirm: "Удалить комментарий?" },
+                    remote: true %>
+    <% end %></p>
+    </small>
+    </div>
+  </div>
+</div>
+</div>

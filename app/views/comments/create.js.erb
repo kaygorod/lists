@@ -1,0 +1,24 @@
+<% if @comment.item_id? %>
+  $("#item_comments_<%=@item.id%>").append("<%= escape_javascript(render 'comments/item_comment', item: @item, comment: @comment) %>");
+  $("#comments_item_<%=@item.id%>_count").html("<%= @item.comments.count %>");
+  $("#item_<%=@item.id%>_comments_form").find("#comment_content").val('');
+  $("html, body").animate({scrollTop: $("#item_comment_one_<%=@comment.id%>").offset().top},2000);
+  $("#item_comment_one_<%=@comment.id%>").animate({backgroundColor: '#C5EFF7'},2000,function() {
+  $("#item_comment_one_<%=@comment.id%>").animate({backgroundColor: '#ECECEC'},2000)
+});
+
+<%else%>
+  $("#list_<%=@list.id%>_comments_form").find("#comment_content").val('');
+  $("#list_comment").append("<%= escape_javascript(render 'comments/list_comment', comment: @comment) %>");
+  $("html, body").animate({scrollTop: $("#list_comment_<%=@comment.id%>").offset().top},2000);
+  $("#list_comment_<%=@comment.id%>").animate({backgroundColor: '#C5EFF7'},2000,function() {
+  $("#list_comment_<%=@comment.id%>").animate({backgroundColor: '#ECECEC'},2000)
+});
+<% end %>
+$("#list_comments_count").html("<%= @list.comments.count %>");
+
+
+
+
+
+

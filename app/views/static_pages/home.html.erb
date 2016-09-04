@@ -1,2 +1,29 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<h1>Список списков</h1>
+<%= render "shared/registration_modal"%>
+<div class="row">
+<ul class="slylist-gird-container">
+  <% @lists.each do |list| %>
+    <li class="slylist-gird">
+      <div class="slylist-items-count"><i class="fa fa-th-list" aria-hidden="true"></i> <%= list.items.count %></div>
+      <a href="<%=list_path(list)%>"><img src="<%= list.image %>" alt="..." class="img-responsive"></a>
+      <div class="slylist-gird-title"><%= link_to list.title, list_path(list)%></div>
+      <div class="slylist-gird-footer">
+        <div class="slylist-gird-footer-stat">
+          <i class="fa fa-comment-o" aria-hidden="true"></i> <%= list.comments.count %>
+          <i class="fa fa-eye" aria-hidden="true"></i> <%= number_to_human(list.views, strip_insignificant_zeros: true) %>
+        </div>
+        <a href="<%= user_path(list.user) %>">
+        <span class="slylist-gird-avatar">
+        <%= display_avatar(list.user) %>
+        </span>
+        <div class="slylist-gird-footer-author">
+        <%= list.user.username%>
+        </a>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
+</div>
+
+

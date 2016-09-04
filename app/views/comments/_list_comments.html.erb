@@ -1,0 +1,10 @@
+<span id="list_<%=@list.id%>_comments_form">
+  <%= render "comments/list_comment_form" %>
+</span>
+<div class="row">
+  <div id="list_comment">
+    <% @list.comments.where(:item_id => nil).each do |comment| %>
+      <%= render "comments/list_comment", comment: comment %>
+    <% end %>
+  </div>
+</div>
