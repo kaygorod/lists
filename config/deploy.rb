@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.6.1'
 
-set :application, 'lists'
+set :application, 'slylist'
 set :repo_url, "git@github.com:kaygorod/lists.git"
 set :deploy_to, "/var/www/slylist"
 set :linked_files, fetch(:linked_files, []).push('config/database.yml','config/secrets.yml')
