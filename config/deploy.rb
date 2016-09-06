@@ -11,19 +11,32 @@ set :keep_releases, 3
 #добавлено 29 августа 2016
 set :ssh_options, :compression => false, :keepalive => true
 
+#namespace :deploy do
+#  %w[unicorn].each do |service|
+#    namespace service do
+#      %w[up down restart status].each do |command|
+#        desc "#{command.capitalize} #{service}"
+#        task command do
+#          on roles(:app) do
+#            execute "sudo sv #{command} #{fetch(:application)}_#{service}"
+#          end
+#        end
+#      end
+#    end
+#  end
+#
+#  after :finished, 'unicorn:restart'
+#end
+
 namespace :deploy do
-  %w[unicorn].each do |service|
-    namespace service do
-      %w[up down restart status].each do |command|
-        desc "#{command.capitalize} #{service}"
-        task command do
-          on roles(:app) do
-            execute "sudo sv #{command} #{fetch(:application)}_#{service}"
-          end
-        end
-      end
+
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute :touch, release_path.join('tmp/restart.txt')
     end
   end
 
-  after :finished, 'unicorn:restart'
+  after :publishing, 'deploy:restart'
+  after :finishing, 'deploy:cleanup'
 end
