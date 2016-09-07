@@ -4,6 +4,7 @@ lock '3.6.1'
 set :application, 'slylist'
 set :repo_url, "git@github.com:kaygorod/lists.git"
 set :unicorn_config_path, "#{current_path}/config/production/unicorn/unicorn.rb"
+set :linked_files, fetch(:linked_files, []).push('config/database.yml','config/secrets.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system') # Строчка есть по умолчанию в deploy.rb, ее просто надо откомментировать
 namespace :deploy do
   task :setup do
