@@ -93,6 +93,6 @@ Rails.application.configure do
     :domain => 'slylist.com',
     :authentication => :plain,
     :user_name => 'no-reply@slylist.com',
-    :password => 'asdoiyw8301'
+    :password => Rails.application.secrets.mail_password_secret
   }
 end
