@@ -39,7 +39,7 @@ gem 'remotipart', '~> 1.2', github: 'pedantix/remotipart', ref: '7f7989db5729768
 gem 'russian', '~> 0.6.0'
 gem 'will_paginate', '~> 3.1.0'
 gem 'devise'#, '>= 3.2.6'
-gem 'omniauth'
+#gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 gem 'cancancan', '~> 1.10'

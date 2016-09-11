@@ -269,7 +269,6 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   mini_magick
-  omniauth
   omniauth-facebook
   omniauth-vkontakte
   pg
