@@ -30,7 +30,7 @@
 #конфигуратор RVM, он нужен только на локальной машине
 .rvmrc
 #Файл с ключами
-/config/secrets.yml
+#/config/secrets.yml
 #файлы конфиги
 /config/database.yml
 /config/deploy/ # файлы Capistrano
