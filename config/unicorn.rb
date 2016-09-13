@@ -12,11 +12,9 @@ end
 
 before_fork do |server, worker|
   ActiveRecord::Base.connection.disconnect! if defined?(ActiveRecord::Base)
-  Resque.redis.quit if defined?(Resque)
-  sleep 1
 end
 
 after_fork do |server, worker|
   ActiveRecord::Base.establish_connection if defined?(ActiveRecord::Base)
-  Resque.redis = 'localhost:6379' if defined?(Resque)
+
 end
